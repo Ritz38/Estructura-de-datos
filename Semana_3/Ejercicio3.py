@@ -5,9 +5,10 @@ for _ in range(C):
     y=tuple(map(int,input().split()))
     p=()
     c=0
-    for i in range(1,x[1]+1):
+    for i in range(1,x[1]//2+1):
         if x[1]%i==0:
             p+=(i,)
+    p+=(x[1],)
     for j in p:
         v=bisect_left(y,j)
         if v!=len(y) and y[v]==j:
