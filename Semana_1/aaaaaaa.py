@@ -1,2 +1,4 @@
-A=(1, 2, 3, 4, 5, 6, 7, 9, 10)
-print(A[:-1:])
+from collections import deque
+x = deque(input().split())
+if x:
+    print("aaaa")
