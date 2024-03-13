@@ -1,4 +1,4 @@
-from collections import deque
-x = deque(input().split())
-if x:
-    print("aaaa")
+x=[1,2,3,4]
+y=x.pop(0)
+print(y)
+print(x)

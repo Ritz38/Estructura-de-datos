@@ -14,7 +14,6 @@ for _ in range(Casos):
 		if error: continue
 		if (m[0]==A1 and len(A)==0) or (m[0]==B1 and len(B)==0) or (m[0]==C1 and len(C)==0): error=True
 		if error: continue
-
 		if m[0]=="A":
 			d= A.pop()
 			if m[1]=="A": A.apppend(d)
@@ -28,8 +27,6 @@ for _ in range(Casos):
 					if d>C[-1]: error=True
 					else: C.append(d)
 				else: C.append(d)
-
-
 		elif m[0]=="B":
 			d= B.pop()
 			if m[1]=="A": 
@@ -43,8 +40,6 @@ for _ in range(Casos):
 					if d>C[-1]: error=True
 					else: C.append(d)
 				else: C.append(d)
-
-
 		else:
 			d= C.pop()
 			if m[1]=="A": 
@@ -58,11 +53,6 @@ for _ in range(Casos):
 					else: B.append(d)
 				else: B.append(d)
 			else: C.apppend(d)
-
-		
-		
-			
-		
 	if error:
 		print("secuencia invalida")
 	elif not A and not B: print("soluciona la torre")
