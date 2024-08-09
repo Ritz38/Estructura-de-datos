@@ -7,11 +7,14 @@ class Node:
 class BinarySearchTree:
     def __init__(self):
         self.root = None
+        self.comprobador = True
+        self.niveles = 0
 
     def insert(self, key):
         self.root = self._insertRecursively(self.root, key)
 
     def _insertRecursively(self, root, key):
+        self.niveles+=1
         if root is None:
             return Node(key)
         if key < root.key:
@@ -59,22 +62,29 @@ class BinarySearchTree:
         return current
 
     def inOrder(self):
-        elements = []
-        self._inOrderRecursively(self.root, elements)
-        return elements
+        self._inOrderRecursively(self.root)
+        return self.comprobador
 
     def _inOrderRecursively(self, root, elements):
         if root:
             self._inOrderRecursively(root.left, elements)
-            elements.append(root.key)
+            if (root.left != None and root.right == None) or (root.left == None and root.right != None): self.comprobador = False
             self._inOrderRecursively(root.right, elements)
+            
 
-
+            
 for _ in range(int(input())):
-    a = list(map(int,input().split()))
-    a = a[:-1:]
     arbol = BinarySearchTree()
+    a = list(map(int,input().split()))[:-1:]
+    c = 0
+    niveles = 0
     for i in a:
+        c+=1
         arbol.insert(i)
-
-
+        if arbol.niveles>niveles: niveles = arbol.niveles
+        arbol.niveles=0
+    
+    if (2**niveles)-1 == c:
+        print("completo")
+    else: print("no")
+    
