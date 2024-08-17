@@ -7,6 +7,7 @@ class Node:
 class BinarySearchTree:
     def __init__(self):
         self.root = None
+        self.contador = 0
 
     def insert(self, key):
         self.root = self._insertRecursively(self.root, key)
@@ -59,22 +60,23 @@ class BinarySearchTree:
         return current
 
     def inOrder(self):
-        elements = []
-        self._inOrderRecursively(self.root, elements)
-        return elements
+        self._inOrderRecursively(self.root)
+        return self.contador
 
-    def _inOrderRecursively(self, root, elements):
+    def _inOrderRecursively(self, root):
         if root:
-            self._inOrderRecursively(root.left, elements)
-            elements.append(root.key)
-            self._inOrderRecursively(root.right, elements)
-
-
+            self._inOrderRecursively(root.left)
+            if (root.left != None and root.right == None) or (root.left == None and root.right != None):
+                self.contador+=1
+            self._inOrderRecursively(root.right)
+            
+            
 for _ in range(int(input())):
     a = list(map(int,input().split()))
     a = a[:-1:]
     arbol = BinarySearchTree()
-    for i in a:
+    for i in a: 
         arbol.insert(i)
-
-
+    print(arbol.inOrder())
+    
+    

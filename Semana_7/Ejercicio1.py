@@ -65,16 +65,21 @@ class BinarySearchTree:
 
     def _inOrderRecursively(self, root, elements):
         if root:
-            self._inOrderRecursively(root.left, elements)
             elements.append(root.key)
+            self._inOrderRecursively(root.left, elements)
             self._inOrderRecursively(root.right, elements)
 
 
+
 for _ in range(int(input())):
-    a = list(map(int,input().split()))
-    a = a[:-1:]
-    arbol = BinarySearchTree()
-    for i in a:
-        arbol.insert(i)
-
-
+    a = BinarySearchTree()
+    l = list(map(int,input().split()))
+    l = l[:-1:]
+    for i in l:
+        a.insert(i)
+    r=""
+    for j in a.inOrder():
+        r+=str(j)
+    print(r)
+    
+    

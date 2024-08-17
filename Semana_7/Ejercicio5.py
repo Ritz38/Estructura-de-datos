@@ -68,13 +68,25 @@ class BinarySearchTree:
             self._inOrderRecursively(root.left, elements)
             elements.append(root.key)
             self._inOrderRecursively(root.right, elements)
-
-
+            
+    def imprimir(self,root,nivel):
+        if root:
+            self.imprimir(root.right,nivel + 1)
+            
+            print("\t" * nivel + str(root.key))
+            
+            self.imprimir(root.left,nivel + 1)
+            
+            
+            
+            
 for _ in range(int(input())):
-    a = list(map(int,input().split()))
-    a = a[:-1:]
     arbol = BinarySearchTree()
+    a = list(map(int,input().split()))[:-1:]
     for i in a:
         arbol.insert(i)
-
-
+    
+    arbol.imprimir(arbol.root,0)
+    print()
+    
+    
