@@ -2,10 +2,7 @@
 #Busqueda O(LogN) si esta ordenado
 # 
 # #bisect_left(lista, elemento)
-
-        
 cilindro = []
-
 for _ in range(int(input())):
     entrada = list(map(int,input().split()))
     if entrada[0]==1:

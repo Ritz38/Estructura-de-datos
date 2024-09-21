@@ -1,7 +1,4 @@
-aristas = {}
+from bisect import bisect_right
 
-a, b = list(map(int, input().split()))
-aristas[a] = aristas[a] | set([b]) 
-aristas[b] = aristas[b] | set([a])
-print(aristas[a])
-print(aristas[b])
+a = [1,1,1,3,3,4]
+print(bisect_right(a,3))
